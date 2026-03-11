@@ -6,7 +6,9 @@ metadata:
     openshift.io/display-name: GitOps Showcase
     openshift.io/description: Production-style sample application managed by Argo CD on OpenShift.
     argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/managed-by: openshift-gitops
   labels:
     kubernetes.io/metadata.name: gitops-showcase
     pod-security.kubernetes.io/audit: restricted
     pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/enforce: restricted
