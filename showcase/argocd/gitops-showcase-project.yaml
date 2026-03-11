@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gitops-showcase
+  namespace: openshift-gitops
+spec:
+  description: Showcase project for demonstrating GitOps-managed OpenShift applications.
+  sourceRepos:
+    - https://github.com/lostspy009/gitops.git
+  destinations:
+    - namespace: gitops-showcase
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: ""
+      kind: ConfigMap
+    - group: ""
+      kind: Service
+    - group: apps
+      kind: Deployment
+    - group: autoscaling
+      kind: HorizontalPodAutoscaler
+    - group: policy
+      kind: PodDisruptionBudget
+    - group: route.openshift.io
+      kind: Route

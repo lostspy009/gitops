@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: gitops-showcase
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - deployment.yaml
+  - service.yaml
+  - route.yaml
+  - pdb.yaml
+  - hpa.yaml
+commonLabels:
+  app.kubernetes.io/name: gitops-showcase
+  app.kubernetes.io/part-of: openshift-gitops-demo
+  app.kubernetes.io/component: web
+  app.kubernetes.io/managed-by: argocd

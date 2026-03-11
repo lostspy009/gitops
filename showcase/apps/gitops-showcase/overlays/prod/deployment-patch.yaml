@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-showcase
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        demo.tier: showcase
+    spec:
+      containers:
+        - name: web
+          env:
+            - name: DEMO_MODE
+              value: showcase

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gitops-showcase
+  annotations:
+    openshift.io/display-name: GitOps Showcase
+    openshift.io/description: Production-style sample application managed by Argo CD on OpenShift.
+    argocd.argoproj.io/sync-wave: "-1"
+  labels:
+    kubernetes.io/metadata.name: gitops-showcase
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted
